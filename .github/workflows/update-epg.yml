@@ -1,0 +1,102 @@
+name: Update Pakistan EPG
+
+on:
+  schedule:
+    # 21:00 UTC is 02:00 Pakistan Standard Time (UTC+5).
+    - cron: "0 21 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-epg:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js LTS
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+
+      - name: Clone iptv-org/epg
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/iptv-org-epg
+          git clone --depth 1 https://github.com/iptv-org/epg.git /tmp/iptv-org-epg
+
+      - name: Copy Pakistan channel list
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/iptv-org-epg/channels
+          cp channels/pk.channels.xml /tmp/iptv-org-epg/channels/pk.channels.xml
+
+      - name: Install iptv-org/epg dependencies
+        working-directory: /tmp/iptv-org-epg
+        run: npm install
+
+      - name: Generate Pakistan XMLTV guide
+        working-directory: /tmp/iptv-org-epg
+        run: |
+          set -euo pipefail
+          npm run grab -- --channels=channels/pk.channels.xml --output=guide.xml --maxConnections=1 --gzip=guide.xml.gz
+
+      - name: Copy generated guide files
+        run: |
+          set -euo pipefail
+          cp /tmp/iptv-org-epg/guide.xml guide.xml
+          cp /tmp/iptv-org-epg/guide.xml.gz guide.xml.gz
+
+      - name: Verify generated guide files
+        run: |
+          set -euo pipefail
+
+          if [ ! -f guide.xml ]; then
+            echo "guide.xml was not generated."
+            exit 1
+          fi
+
+          guide_size="$(wc -c < guide.xml)"
+          if [ "$guide_size" -le 1024 ]; then
+            echo "guide.xml is too small (${guide_size} bytes)."
+            exit 1
+          fi
+
+          if ! grep -q "<tv" guide.xml; then
+            echo "guide.xml does not contain <tv."
+            exit 1
+          fi
+
+          if ! grep -q "<channel" guide.xml; then
+            echo "guide.xml does not contain <channel."
+            exit 1
+          fi
+
+          if ! grep -q "<programme" guide.xml; then
+            echo "guide.xml does not contain <programme."
+            exit 1
+          fi
+
+          if [ ! -f guide.xml.gz ]; then
+            echo "guide.xml.gz was not generated."
+            exit 1
+          fi
+
+      - name: Commit and push changed guide files
+        run: |
+          set -euo pipefail
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add guide.xml guide.xml.gz
+
+          if git diff --cached --quiet; then
+            echo "No EPG changes to commit."
+          else
+            git commit -m "Update Pakistan EPG"
+            git push
+          fi
