@@ -13,22 +13,21 @@ https://iptv-org.github.io/iptv/countries/pk.m3u
 Custom Pakistan M3U playlist from this repository:
 
 ```text
-https://raw.githubusercontent.com/YOUR_USERNAME/pakistan-iptv-guide/main/pakistan.m3u
+https://raw.githubusercontent.com/anjumadnan337/pakistan-iptv-guide/main/pakistan.m3u
 ```
 
 EPG XMLTV guide:
 
 ```text
-https://raw.githubusercontent.com/YOUR_USERNAME/pakistan-iptv-guide/main/guide.xml
+https://raw.githubusercontent.com/anjumadnan337/pakistan-iptv-guide/main/guide.xml
 ```
 
 Compressed EPG XMLTV guide:
 
 ```text
-https://raw.githubusercontent.com/YOUR_USERNAME/pakistan-iptv-guide/main/guide.xml.gz
+https://raw.githubusercontent.com/anjumadnan337/pakistan-iptv-guide/main/guide.xml.gz
 ```
 
-Replace `YOUR_USERNAME` with your GitHub username.
 
 ## Recommended TV Setup
 
@@ -41,19 +40,19 @@ https://iptv-org.github.io/iptv/countries/pk.m3u
 or:
 
 ```text
-https://raw.githubusercontent.com/YOUR_USERNAME/pakistan-iptv-guide/main/pakistan.m3u
+https://raw.githubusercontent.com/anjumadnan337/pakistan-iptv-guide/main/pakistan.m3u
 ```
 
 Then use this EPG URL:
 
 ```text
-https://raw.githubusercontent.com/YOUR_USERNAME/pakistan-iptv-guide/main/guide.xml
+https://raw.githubusercontent.com/anjumadnan337/pakistan-iptv-guide/main/guide.xml
 ```
 
 If your IPTV app supports compressed EPG files, you can use:
 
 ```text
-https://raw.githubusercontent.com/YOUR_USERNAME/pakistan-iptv-guide/main/guide.xml.gz
+https://raw.githubusercontent.com/anjumadnan337/pakistan-iptv-guide/main/guide.xml.gz
 ```
 
 ## Notes
