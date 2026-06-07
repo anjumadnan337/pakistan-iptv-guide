@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channels>
+  <channel site="epgshare01.online" site_id="PK1#AJK.TV.pk" lang="en" xmltv_id="AJKTV.pk">AJK TV</channel>
+  <channel site="epgshare01.online" site_id="PK1#Bolan.pk" lang="en" xmltv_id="PTVBolan.pk">PTV Bolan</channel>
+  <channel site="epgshare01.online" site_id="PK1#PTV.Global.pk" lang="en" xmltv_id="PTVGlobal.pk@SD">PTV Global</channel>
+  <channel site="epgshare01.online" site_id="PK1#PTV.Home.pk" lang="en" xmltv_id="PTVHome.pk">PTV Home</channel>
+  <channel site="epgshare01.online" site_id="PK1#PTV.National.pk" lang="en" xmltv_id="PTVNational.pk">PTV National</channel>
+  <channel site="epgshare01.online" site_id="PK1#PTV.News.pk" lang="en" xmltv_id="PTVNews.pk@SD">PTV News</channel>
+  <channel site="epgshare01.online" site_id="PK1#PTV.Sports.pk" lang="en" xmltv_id="PTVSports.pk@SD">PTV Sports</channel>
+  <channel site="epgshare01.online" site_id="PK1#PTV.World.pk" lang="en" xmltv_id="PTVWorld.pk">PTV World</channel>
+  <channel site="sky.com" site_id="4265" lang="en" xmltv_id="ARYDigital.pk">ARY Digital</channel>
+  <channel site="sky.com" site_id="1009" lang="en" xmltv_id="ARYQtv.pk">ARY Qtv</channel>
+  <channel site="sky.com" site_id="4407" lang="en" xmltv_id="GeoNewsInternational.pk">Geo News International</channel>
+  <channel site="sky.com" site_id="4110" lang="en" xmltv_id="GeoUK.pk">Geo UK</channel>
+  <channel site="sky.com" site_id="5205" lang="en" xmltv_id="HumEurope.pk">Hum Europe</channel>
+  <channel site="sky.com" site_id="4460" lang="en" xmltv_id="MadaniChannelEnglish.pk@SD">Madani Channel English</channel>
+  <channel site="sky.com" site_id="1069" lang="en" xmltv_id="HumNews.pk@SD">Hum News</channel>
+</channels>
